@@ -6,13 +6,12 @@ import Rank from '../Rank/Rank'
 
 function Home() {
     return (
-        <div>
-            <Navigation />
-            <Logo />
-            <Rank />
-            <ImageLinkForm />
-        </div>
-
+            <div>
+                <Navigation />
+                <Logo />
+                <Rank />
+                <ImageLinkForm />
+            </div>
     )
 }
 

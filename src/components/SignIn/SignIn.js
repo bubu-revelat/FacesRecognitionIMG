@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import PopUp from '../PopUp/PopUp';
+import { useUser } from '../UserContext/UserContext';
 
 
 function SignIn() {
     let navigate = useNavigate();
+    const { updateUser } = useUser();
 
     const [isOpen, setIsOpen] = useState(false)
     const [email, onEmailChange] = useState(null)
@@ -62,9 +64,10 @@ function SignIn() {
             if (signin) {
                 const response = await signin.json();
                 if (response?.result) {
-                    navigate('/home');
+                    navigate('/home',{state:{user:response?.user}});
+                    updateUser(response?.user);
                 } else {
-                    alert(response?.message)
+                    toggleModal();
                 }
             }
 

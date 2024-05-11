@@ -1,14 +1,25 @@
 import React from "react";
+import { useUser } from '../UserContext/UserContext';
+
 
 function Rank() {
-    return(
+
+    const { user } = useUser();
+
+
+
+    return (
         <div>
-            <div className="black f3">
-            {'Bubu, your current rank is..'}
-            </div>
-            <div className="black f1">
-            {'#5'}
-            </div>
+            {user && (
+                <div>
+                    <div className="black f3">
+                        {`${user.name}, your current rank is..`}
+                    </div>
+                    <div className="black f1">
+                        {`#${user.entries}`}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
