@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import PopUp from "../PopUp/PopUp";
-
+import endpoint from '../../endpoint';
 
 
 function Register() {
@@ -69,7 +69,7 @@ function Register() {
                 password: password,
                 name: name
             }
-            const register = await fetch('http://localhost:3000/register', {
+            const register = await fetch(endpoint.url + '/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

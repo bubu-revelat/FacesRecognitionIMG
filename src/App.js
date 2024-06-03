@@ -5,7 +5,7 @@ import Home from './components/Home/Home';
 import Register from './components/Register/Register';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { UserProvider } from './components/UserContext/UserContext';
-
+import endpoint from './endpoint'
 
 
 
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000');
+        const response = await fetch(endpoint.url);
         console.log(response);
       } catch (error) {
         console.error('Error fetching data:', error);

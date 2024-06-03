@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import './FaceRecognition.css'
 import { useUser } from '../UserContext/UserContext';
-
+import endpoint from "../../endpoint";
 
 
 let _left_col = "";
@@ -14,7 +14,7 @@ let _rightCol = "";
 
 const clarifaiAPI = async (imageURL) => {
     console.log("11111")
-    fetch('http://localhost:3000/imageurl', {
+    fetch(endpoint.url +'/imageurl', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ function FaceRecognition({ source }) {
                 id: user.id
             }
 
-            fetch('http://localhost:3000/image', {
+            fetch(endpoint.url +'/image', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
